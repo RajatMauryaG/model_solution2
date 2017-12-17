@@ -21,22 +21,26 @@ function BuyController(ShoppingListService) {
   Buy.itemsBuy = ShoppingListService.getItems();
 
   Buy.bought = function (itemIndex) {
-    try {
-      ShoppingListService.bought(itemIndex);
-    }
-    catch (error)
-    {
-      Buy.Message = error.message;
-      }
+
+    ShoppingListService.bought(itemIndex);
+    // try {
+    //   ShoppingListService.bought(itemIndex);
+    // }
+    // catch (error)
+    // {
+    //   Buy.Message = error.message;
+    //   }
   };
 
   Buy.addtobought = function (item) {
-    try {
-      ShoppingListService.addtobought(item);
-    }
-    catch (error) {
-      Buy.Message = error.message;
-    }
+
+    ShoppingListService.addtobought(item);
+    // try {
+    //   ShoppingListService.addtobought(item);
+    // }
+    // catch (error) {
+    //   Buy.Message = error.message;
+    // }
 
   };
 
@@ -83,12 +87,14 @@ function ShoppingListService(maxItems) {
   var bItems = [];
 
   service.addtobought = function (item) {
-    if (bItems.length == 0) {
-      throw new Error("Nothing bought yet");
-    }
-    else {
-      bItems.push(item);
-    }
+
+    bItems.push(item);
+    // if (bItems.length != 0) {
+    //   bItems.push(item);
+    // }
+    // else {
+    //     throw new Error("Nothing bought yet");
+    // }
   };
 
   service.getBougthItem = function () {
@@ -101,12 +107,14 @@ function ShoppingListService(maxItems) {
     };
 
   service.bought = function (itemIndex) {
-    if (items.length > 10) {
-      items.splice(itemIndex, 1);
-    }
-    else {
-      throw new Error("Everything is bought!");
-    }
+
+    items.splice(itemIndex, 1);
+    // if (items.length > 0) {
+    //   items.splice(itemIndex, 1);
+    // }
+    // else {
+    //   throw new Error("Everything is bought!");
+    // }
 
   };
 
