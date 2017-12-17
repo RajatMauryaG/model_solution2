@@ -24,9 +24,10 @@ function BuyController(ShoppingListService) {
     ShoppingListService.bought(itemIndex);
   };
 
-  Buy.addtobought = function () {
-
+  Buy.addtobought = function (item) {
+    ShoppingListService.addtobought(item);
   };
+
 }
 
 
@@ -67,9 +68,16 @@ function ShoppingListService(maxItems) {
     }
   ];
 
-  // service.addtobuy = function (maxitems) {
-  //
-  // };
+  var bItems = [];
+
+  service.addtobought = function (item) {
+    bItems.push(item);
+  };
+
+  service.getBougthItem = function () {
+    return bItems;
+  };
+
 
   service.getItems = function () {
     return items;
